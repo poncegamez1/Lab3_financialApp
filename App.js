@@ -37,7 +37,7 @@ export default function App() {
 
         </Tab.Screen>
         <Tab.Screen name="Summary" options={{tabBarIcon: () => <MaterialIcons name="summarize" size={24} color="black" />}}>
-          {(props) => <Summary {...props} />}
+          {(props) => <Summary {...props} transactionList={transactionList}/>}
 
         </Tab.Screen>
       </Tab.Navigator>
