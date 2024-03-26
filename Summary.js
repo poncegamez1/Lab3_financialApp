@@ -9,24 +9,30 @@ export default function Summary({ transactionList }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Summary</Text>
       <View style={styles.summaryItem}>
-        <Text style={styles.itemLabel}>Total number of transactions:</Text>
-        <Text>{numberOfTransactions}</Text>
+        <Text style={styles.itemLabel}>Transactions:</Text>
+        <Text style={styles.value}>{numberOfTransactions}</Text>
       </View>
+
       <View style={styles.summaryItem}>
-        <Text style={styles.itemLabel}>Total amount:</Text>
-        <Text>${totalAmount}</Text>
+        <Text style={styles.itemLabel}>Balance:</Text>
+        <Text style={styles.value}>${totalAmount}</Text>
       </View>
-      <View style={styles.summaryItem}>
-        <Text style={styles.itemLabel}>Highest spending:</Text>
-        <Text>Name: {highestSpending.name}</Text>
-        <Text>Amount: ${highestSpending.amount}</Text>
+
+      <View>
+        <Text style={styles.title}>Highest spending:</Text>
+        <View style={styles.summaryItem}>
+          <Text style={styles.value}>{highestSpending.name}</Text>
+          <Text style={styles.value}>${highestSpending.amount}</Text>
+        </View>
       </View>
-      <View style={styles.summaryItem}>
-        <Text style={styles.itemLabel}>Lowest spending:</Text>
-        <Text>Name: {lowestSpending.name}</Text>
-        <Text>Amount: ${lowestSpending.amount}</Text>
+
+      <View>
+        <Text style={styles.title}>Lowest spending:</Text>
+        <View style={styles.summaryItem}>
+          <Text style={styles.value}>{lowestSpending.name}</Text>
+          <Text style={styles.value}>${lowestSpending.amount}</Text>
+        </View>
       </View>
     </View>
   );
@@ -35,19 +41,29 @@ export default function Summary({ transactionList }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20,
+    padding: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 20,
+    padding: 5,
+    color: '#3498db'
+
   },
   summaryItem: {
     marginBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   itemLabel: {
     fontWeight: 'bold',
+    fontSize: 20,
+    padding: 5,
   },
+  value: {
+    fontSize: 20,
+    padding: 5,
+  }
 });

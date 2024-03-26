@@ -1,13 +1,22 @@
-import { FlatList, View, Text, StyleSheet, TouachableOpacity, TouchableOpacity} from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import {
+  FlatList,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function TransactionsList({ transactionList }) {
-
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => handleTransactionTapped(item)}>
       <View style={styles.listItem}>
         <Text style={styles.itemName}>{item.name}</Text>
-        <Text style={styles.itemAmount}>{`$${item.amount}`}</Text>
+        <View style={styles.listAmountArrow}>
+          <Text style={styles.itemAmount}>{`$${item.amount}`}</Text>
+          <AntDesign style={styles.itemAmount} name="right" size={24} color="black" />
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -15,7 +24,7 @@ export default function TransactionsList({ transactionList }) {
   const navigation = useNavigation();
 
   const handleTransactionTapped = (transaction) => {
-    navigation.navigate('TransactionDetail', { transaction });
+    navigation.navigate("TransactionDetail", { transaction });
   };
 
   return (
@@ -43,5 +52,12 @@ const styles = StyleSheet.create({
   },
   itemAmount: {
     fontSize: 16,
+    marginRight: 10,
+    color: "#3498db",
+    fontWeight: "bold",
   },
+  listAmountArrow: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  }
 });

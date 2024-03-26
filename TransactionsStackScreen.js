@@ -10,7 +10,13 @@ export default function TransactionsStackScreen({ transactionList }) {
     <Stack.Navigator>
       <Stack.Screen
         name="TransactionsList"
-        options={{ title: "Transactions List" }}
+        options={{
+          title: "Transactions List",
+          headerStyle: {
+            backgroundColor: "#3498db",
+          },
+          headerTintColor: "#fff",
+        }}
       >
         {(screenProps) => (
           <TransactionsList
@@ -23,7 +29,13 @@ export default function TransactionsStackScreen({ transactionList }) {
       <Stack.Screen
         name="TransactionDetail"
         component={TransactionsDetail}
-        options={{ title: 'Transaction Detail' }}
+        options={{
+          title: "Transaction Detail",
+          headerStyle: {
+            backgroundColor: "#3498db",
+          },
+          headerTintColor: "#fff",
+        }}
       />
     </Stack.Navigator>
   );
