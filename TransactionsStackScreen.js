@@ -5,7 +5,7 @@ import TransactionsList from "./TransactionsList";
 
 const Stack = createStackNavigator();
 
-export default function TransactionsStackScreen({ transactionList }) {
+export default function TransactionsStackScreen({ transactions }) {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -21,7 +21,7 @@ export default function TransactionsStackScreen({ transactionList }) {
         {(screenProps) => (
           <TransactionsList
             {...screenProps}
-            transactionList={transactionList}
+            transactions={transactions}
           />
         )}
       </Stack.Screen>

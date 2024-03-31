@@ -8,7 +8,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function TransactionsList({ transactionList }) {
+export default function TransactionsList({ transactions }) {
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => handleTransactionTapped(item)}>
       <View style={styles.listItem}>
@@ -30,7 +30,7 @@ export default function TransactionsList({ transactionList }) {
   return (
     <View>
       <FlatList
-        data={transactionList}
+        data={transactions}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />

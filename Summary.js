@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Summary({ transactionList }) {
+export default function Summary({ transactions }) {
   
-  const numberOfTransactions = transactionList.length;
-  const totalAmount = transactionList.reduce((acc, transaction) => acc + transaction.amount, 0);
-  const highestSpending = transactionList.reduce((max, transaction) => (transaction.amount > max.amount ? transaction : max), transactionList[0]);
-  const lowestSpending = transactionList.reduce((min, transaction) => (transaction.amount < min.amount ? transaction : min), transactionList[0]);
+  const numberOfTransactions = transactions.length;
+  const totalAmount = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
+  const highestSpending = transactions.reduce((max, transaction) => (transaction.amount > max.amount ? transaction : max), transactions[0]);
+  const lowestSpending = transactions.reduce((min, transaction) => (transaction.amount < min.amount ? transaction : min), transactions[0]);
 
   return (
     <View style={styles.container}>

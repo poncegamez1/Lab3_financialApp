@@ -1,26 +1,25 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Summary from "./Summary";
+import Form from "./Form";
 
 const Stack = createStackNavigator();
 
-export default function SummaryStackScreen({ transactions }) {
+export default function FormStackScreen( {onAddTransaction} ) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="SummaryScreen"
+        name="FormScreen"
         options={{
-          title: "Summary",
+          title: "Add New Transaction",
           headerStyle: {
             backgroundColor: "#3498db",
           },
           headerTintColor: "#fff",
         }}
       >
-        {(screenProps) => (
-          <Summary
-            {...screenProps}
-            transactions={transactions}
+        {(props) => (
+          <Form {...props} 
+          onAddTransaction={onAddTransaction}
           />
         )}
       </Stack.Screen>
